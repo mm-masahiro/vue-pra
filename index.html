@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue Practice</title>
+		<link href="./main.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div id="app">
+			<!-- この中にテンプレートを書き込んでいく -->
+
+			<!-- テキストのバインディング -->
+			<p>{{ message }}</p>
+			<input v-model="message">
+			<input v-model.number="count">
+
+			<p v-if="show">条件分岐だよ</p>
+
+			<ol>
+				<li v-for="item in list">{{ item }}</li>
+			</ol>
+
+			<button v-on:click="handleClick">Click</button>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+		<script src="./main.js"></script>
+
+	</body>
+</html>
