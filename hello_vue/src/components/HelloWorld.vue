@@ -5,12 +5,19 @@
     <!-- v-onでイベント発火時の JavaScript の実行が可能に -->
     <!-- ↓は、toggle関数の呼び出し -->
     <button v-on:click="toggle">toggle</button>
+    <div>
+      Hello
+    </div>
   </div>
 </template>
 
 <script>
+import Hello from "./Hello.vue"
 export default {
   name: 'HelloWorld',
+  components: {
+    Hello
+  },
   data() {
     return {
       msg: 'Hello Vue.js App',
