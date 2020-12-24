@@ -6,7 +6,6 @@
       <draggable>
         <li v-for="item in items" :key="item.no">{{item.name}}</li>
       </draggable>
-      <div>ccc</div>
     </div>
   </div>
  </div>
@@ -19,11 +18,14 @@ export default {
   components: {
     'draggable': draggable,
   },
-  data: {
-    items: [
-      {no:1, name: "hoge"},
-      {no:2, name: "foo"}
-    ]
+  data: function() {
+    return {
+      items: [
+        {no:1, name: "Rails"},
+        {no:2, name: "Vue"},
+        {no:3, name: "Go"}
+      ]
+    }
   }
 }
 </script>
@@ -36,7 +38,7 @@ export default {
 
 .column--frame {
   width: 300px;
-  height: 100px;
+  height: 100%;
   background-color: grey;
   border-radius: 5px;
 }
