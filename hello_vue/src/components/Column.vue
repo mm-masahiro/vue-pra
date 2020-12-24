@@ -4,9 +4,8 @@
     <div class="column--title">タイトル</div>
     <div class="column--content">
       <draggable>
-        <li v-for="item in items" :key="item.no">{{item.name}}</li>
+        <div class="column--content__list" v-for="item in items" :key="item.no">{{item.name}}</div>
       </draggable>
-      <div>ccc</div>
     </div>
   </div>
  </div>
@@ -19,11 +18,14 @@ export default {
   components: {
     'draggable': draggable,
   },
-  data: {
-    items: [
-      {no:1, name: "hoge"},
-      {no:2, name: "foo"}
-    ]
+  data: function() {
+    return {
+      items: [
+        {no:1, name: "Rails"},
+        {no:2, name: "Vue"},
+        {no:3, name: "Go"}
+      ]
+    }
   }
 }
 </script>
@@ -32,23 +34,34 @@ export default {
 
 .column {
   padding: 20px;
+  height: 100%;
 }
 
 .column--frame {
   width: 300px;
-  height: 100px;
+  height: 100%;
   background-color: grey;
   border-radius: 5px;
 }
 
 .column--title {
   color: white;
+  margin-bottom: 20px;
 }
 
 .column--content__frame {
   background-color: white;
   border-radius: 5px;
   width: 70%;
+}
+
+.column--content__list {
+  list-style: none;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 </style>
