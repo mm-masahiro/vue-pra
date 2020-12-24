@@ -4,7 +4,7 @@
     <div class="column--title">タイトル</div>
     <div class="column--content">
       <draggable>
-        <li v-for="item in items" :key="item.no">{{item.name}}</li>
+        <li class="column--content__list" v-for="item in items" :key="item.no">{{item.name}}</li>
       </draggable>
     </div>
   </div>
@@ -51,6 +51,14 @@ export default {
   background-color: white;
   border-radius: 5px;
   width: 70%;
+}
+
+.column--content__list {
+  list-style: none;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 </style>
