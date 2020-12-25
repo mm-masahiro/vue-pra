@@ -7,6 +7,7 @@
         <div class="column--content__list" v-for="item in items" :key="item.no">{{item.name}}</div>
       </draggable>
     </div>
+    <div class="column--create">+ カードを追加する</div>
   </div>
  </div>
 </template>
@@ -47,6 +48,11 @@ export default {
 .column--title {
   color: white;
   margin-bottom: 20px;
+}
+
+.column--create {
+  color: white;
+  cursor: pointer;
 }
 
 .column--content__frame {
