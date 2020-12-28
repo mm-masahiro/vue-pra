@@ -3,10 +3,12 @@
   <div class="column--frame">
     <div class="column--title">タイトル</div>
     <div class="column--content">
-      <draggable>
-        <div class="column--content__list" v-for="item in items" :key="item.no">{{item.name}}</div>
-      </draggable>
+      <div>
+        <!-- mousedownはクリックする度に発火 -->
+        <div class="column--content__list" v-for="item in items" :key="item.no" @mousedown="mouseDown">{{item.name}}</div>
+      </div>
     </div>
+    <div class="column--create">+ カードを追加する</div>
   </div>
  </div>
 </template>
@@ -26,6 +28,24 @@ export default {
         {no:3, name: "Go"}
       ]
     }
+  },
+  methods: {
+    mouseDown() {
+      console.log('hoge')
+    },
+    mouseMove() {
+      console.log('foo')
+    },
+    mouseUp() {
+      console.log('bar')
+    }
+  },
+  mounted() {
+    // mousemoveはマウスを動かす度に発火
+    window.addEventListener('mousemove', this.mouseMove);
+
+    // mouseupはクリックを離す度に発火
+    window.addEventListener('mouseup', this.mouseUp);
   }
 }
 </script>
@@ -40,13 +60,16 @@ export default {
 .column--frame {
   width: 300px;
   height: 100%;
-  background-color: grey;
+  background-color: #ebecf0;
   border-radius: 5px;
 }
 
 .column--title {
-  color: white;
   margin-bottom: 20px;
+}
+
+.column--create {
+  cursor: pointer;
 }
 
 .column--content__frame {
