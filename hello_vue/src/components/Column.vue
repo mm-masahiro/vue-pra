@@ -26,18 +26,31 @@ export default {
         {no:1, name: "Rails"},
         {no:2, name: "Vue"},
         {no:3, name: "Go"}
-      ]
+      ],
+      element: '',
+      draggin: false
     }
   },
   methods: {
     mouseDown() {
-      console.log('hoge')
+      // console.log(event.target)
+      // console.log('create event')
+      this.draggin = true;
+      this.element = event.target;
+      this.element.style.position= "absolute"
+
+      // event.target.style.position = "absolute"
     },
     mouseMove() {
-      console.log('foo')
+      // console.log(event.pageX, event.pageY)
+      if(this.draggin) {
+        event.target.style.top = `${event.pageX}px`
+        event.target.style.left = `${event.pageY}px`
+      }
     },
     mouseUp() {
-      console.log('bar')
+      // console.log('bar')
+      this.dragging = false;
     }
   },
   mounted() {
@@ -46,6 +59,10 @@ export default {
 
     // mouseupはクリックを離す度に発火
     window.addEventListener('mouseup', this.mouseUp);
+  },
+  beforeMounted() {
+    window.removeEventListener('mousemove', this.mouseMove);
+    window.removeEventListener('mouseup', this.mouseUp)
   }
 }
 </script>
